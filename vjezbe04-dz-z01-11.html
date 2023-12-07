@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+ 
+	//1. zadatak
+	let Broj=19;
+	let Niz1="Niz znakova";
+	let Niz2='3.14';
+	let Niz3='U dva <br/> retka';
+	let Logicka=true;
+	let bLogicka = false;
+	document.write(Broj,"<br/>", Niz1, "<br/>",Niz2, "<br/>",Niz3, "<br/>",Logicka, "<br/>",bLogicka, "<br/><br/>")
+ 
+	
+	//2. zadatak
+
+	function parniBroj_kvadrat()
+	{
+		let parni = [];
+		let kvadrati = [];
+		let i;
+		
+		for(i=0; i<100; i++)
+		{
+			if(i % 2 == 0)
+			{
+				parni.push(i);
+				let kvadrat = i * i;
+				kvadrati.push(kvadrat);
+			}
+		}
+		return [parni, kvadrati];
+	}
+	
+	let rezultat = parniBroj_kvadrat();
+	console.log('Parni brojevi su:', rezultat[0]);
+	console.log('Kvadrati parnih brojeva su:', rezultat[1]);
+	document.write("Parni brojevi su: ",rezultat[0], "<br/>");
+	document.write("Kvadrati parnih brojeva su: ", rezultat[1], "<br><br>");
+	
+	
+	//3. zadatak
+	
+
+		 function prost(x){
+            if(x < 2){
+                return false;
+            }
+            for(let i = 2; i<x; i++){
+                if(x % i === 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+		document.write("Prosti brojevi su: <br>");
+        for(let i = 0; i<1000; i++){
+            if (prost(i)){
+                console.log(i);
+                document.write(i +"<br>");
+            }
+        }
+		
+		//4. zadatak
+
+
+	let polje = new Array(1,2,3,4,7,8,5,6,9, 55, 12, 4,85);
+	document.write("Inicijalna duljina polja je:", polje.length, "<br>");
+	
+	polje.sort(function(x, y)
+	{
+		return y-x;
+    }
+	);
+    document.write("Polje od najveceg ka najmanjem: ", polje, "<br>");
+	
+	polje.sort(function(x,y)
+	{
+		return x-y;
+    }
+	);
+    document.write("Polje od manjeg ka većem: ", polje, "<br>");
+	
+	 let zadnji_clan = polje.pop();
+     document.write("Nakon uklanjanja zadnjeg clana niz izgleda ovako: ", polje, "<br>");
+
+	let dodatiClan = polje.push(19, 22);
+    document.write("Nakon sto dodamo elemente niz izgleda ovako: ", polje, "<br>");
+		
+	
+	let polje2 = new Array("Banana", "Orange", "Apple", "Mango");
+    let poljeRjesenje = polje.concat(polje2);
+    document.write("Nakon spajanja zavrsno polje izgleda ovako: ", poljeRjesenje, "<br><br>");
+	
+	
+	//5. zadatak
+	
+	const osoba1 =
+	{
+		firstName: "Marko",
+        lastName: "Maric",
+        age: 40,
+        hight: "182cm"
+    };
+	
+    const osoba2 =
+	{
+        firstName: "Gabi",
+        lastName: "Grbesic",
+        age: 19,
+        hight: "169cm"
+    };
+	
+    const osoba3 =
+	{
+		firstName: "Marija", 
+        lastName: "Leko",
+        age: 29,
+        hight: "197cm"
+     };
+        
+     let osobe = [osoba1, osoba2, osoba3];
+    for(let i=0; i<osobe.length; i++)
+	{
+        document.write(`${osobe[i].firstName} ${osobe[i].lastName} ${osobe[i].age} ${osobe[i].hight}`+"<br>");
+    }
+	
+	//6.zadatak
+	
+	const Pas =
+	{
+      ime: "Reks",
+      godine: 2,
+      zvuk: function()
+	  {
+		return "AV AV";
+      }
+	  
+     };
+    const glasanjePsa = Pas.zvuk();
+    document.write(`${Pas.ime} ${glasanjePsa}`);
+        
+	//7. zadatak
+	
+	let kvaFun = function(broj)
+	{
+    if (typeof broj === 'number' && !isNaN(broj))
+	{
+        return broj * broj;
+    }
+	else
+	{
+        return "Niste unijeli broj.";
+    }
+    };
+    document.write("<br>"+"<br>"+kvaFun(8)+"<br>");
+    document.write(kvaFun("abc")+"<br>");
+	
+	//9. zadatak
+	
+    function savrsenBroj(broj) {
+    let zbrojDj = 0;
+
+    for (let i = 1; i <= broj / 2; i++)
+	{
+        if (broj % i === 0)
+		{
+          zbrojDj += i;
+		}
+    }
+
+		return zbrojDj === broj;
+    }
+
+    function ispisiSavrseneBrojeve(min, max)
+	{
+		for (let broj = min; broj <= max; broj++)
+		{
+			if (savrsenBroj(broj))
+			{
+				document.write("<br>"+ broj + ' je savršen broj.');
+			}
+		}
+    }
+    ispisiSavrseneBrojeve(1, 100);
+	
+	//10. zadatak
+	
+    function randomBr(x, y)
+	{
+        let pomNiz = [];
+        for (let i = 0; i < 5; i++)
+		{
+			pomNiz.push(Math.floor(Math.random() * (y - x + 1) + x));
+        }
+			return pomNiz;
+    }
+    let random = randomBr(5, 100);
+    document.write("<br>"+"<br>"+ `Random brojevi su: ${random.join(', ')}`+"<br>");
+	
+	//11. zadatak
+	
+    const tempDay = ['2023-11-29', -1, 0, -0.5, 0.5, 0, 1.2, 1.8, 2, 3, 4, 6, 9, 12, 7, 6, 6, 8, 5, 4, 2, 3, 2, 1, 0];
+
+	function temp(tempNiz) {
+    const datum = tempNiz[0];
+    
+
+    const temperatura = tempNiz.slice(1);
+
+
+    const minTemp = Math.min(...temperatura);
+    const maxTemp = Math.max(...temperatura);
+    const srednjaTemp = temperatura.reduce((sum, temp2) => sum + temp2, 0) / temperatura.length;
+
+   
+    document.write(`Datum: ${datum}`+"<br>");
+    document.write(`Najmanja temperatura: ${minTemp}`+"<br>");
+    document.write(`Najveća temperatura: ${maxTemp}`+"<br>");
+    document.write(`Prosječna temperatura: ${srednjaTemp.toFixed(2)}`+"<br>");
+}
+
+
+temp(tempDay);
+	
+ </script>
+</body>
+</html>
+
+	
+		
+		
